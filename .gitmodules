@@ -1,0 +1,3 @@
+[submodule "third_party/PredictiveCoding"]
+	path = third_party/PredictiveCoding
+	url = git@github.com:tomas-gr/PredictiveCoding.git

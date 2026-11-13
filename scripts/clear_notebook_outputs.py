@@ -14,7 +14,8 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-IGNORED_DIRS = {".git", ".ipynb_checkpoints", "node_modules", "venv", ".venv"}
+# third_party/ holds other people's repositories (git submodules): never modify them.
+IGNORED_DIRS = {".git", ".ipynb_checkpoints", "node_modules", "venv", ".venv", "third_party"}
 
 
 def find_notebooks(root: Path):

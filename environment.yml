@@ -1,0 +1,30 @@
+# Conda environment for the RELAX project.
+#
+# Create it (from the repo root):   conda env create -f environment.yml
+# Update it after editing this file: conda env update -f environment.yml --prune
+# Activate it:                       conda activate relax
+#
+# Conda provides only Python itself; every library comes from pip, so all
+# dependencies are listed in one place below.
+name: relax
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - pip
+  - pip:
+      # Core numerical stack (versions known to work together)
+      - torch==2.14.1
+      - torchvision==0.29.1
+      - numpy==2.2.4
+      - scipy>=1.15        # >=1.15 needed for scipy.stats.Normal used in the tutorials
+      - matplotlib==3.11.2
+      - pandas==2.2.3
+      - seaborn==0.13.2
+      - tqdm==4.70.1
+      # Jupyter kernel, so notebooks can run inside this environment
+      - ipykernel
+      # Bogacz-group predictive coding library (git submodule), installed in
+      # "editable" mode: Python imports it straight from third_party/, so any
+      # change to its source is visible without reinstalling.
+      - -e ./third_party/PredictiveCoding
